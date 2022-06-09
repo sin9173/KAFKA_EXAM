@@ -20,7 +20,10 @@ public class ProducerSyncCallback {
         configs.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, BOOTSTRAP_SERVERS);
         configs.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         configs.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-        configs.put(ProducerConfig.ACKS_CONFIG, "0"); //ACKS옵션을 지정 0으로 할 경우 오프셋번호를 알 수 없음 (오프셋을 -1로 반환)
+        configs.put(ProducerConfig.ACKS_CONFIG, "0");
+        //ACKS옵션을 0으로 할 경우 오프셋번호를 알 수 없음 (오프셋을 -1로 반환)
+        //ACKS옵션을 1로 할 경우 리더파티션에 대해서만 결과를 가져온다.
+        //acks가 -1(all)일경우 신뢰도가 높지만 속도는 느리다.
 
         KafkaProducer<String, String> producer = new KafkaProducer<String, String>(configs);
 
