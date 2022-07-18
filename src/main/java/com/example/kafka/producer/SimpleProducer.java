@@ -12,7 +12,8 @@ import java.util.Properties;
 public class SimpleProducer {
     private final static Logger logger = LoggerFactory.getLogger(SimpleProducer.class);
     private final static String TOPIC_NAME = "test";
-    private final static String BOOTSTRAP_SERVERS = "my-kafka:9092";
+    //private final static String BOOTSTRAP_SERVERS = "my-kafka:9092";
+    private final static String BOOTSTRAP_SERVERS = "test-broker03:9092";
 
     public static void main(String[] args) {
         Properties configs = new Properties();
